@@ -240,62 +240,6 @@ Ciphertext        (1088 bytes): 3e4f5a6b7c8d... (hex truncated)
 Shared Secret Bob   (32 bytes): 8a9b0c1d2e3f... (hex truncated)
 Shared Secret Alice (32 bytes): 8a9b0c1d2e3f... (hex truncated)
 ```
-```
-
-## Expected Test Output
-
-```
-=== TessanDioKey V18 C++ Native Test ===
-[PASS] params_init
-[PASS] keypair
-[PASS] indcpa_roundtrip
-[PASS] encaps
-[PASS] decaps
-[PASS] base_kem_agreement
-[PASS] final_key_agreement
-[PASS] mac_verify
-[PASS] commitment_verify
-[PASS] reconcile_self_verify
-[PASS] params_evolve
-[PASS] trapdoor_id
-[PASS] ct_cswap_on
-[PASS] ct_cswap_off
-[PASS] merkle_build
-[PASS] merkle_verify
-[PASS] merkle_tamper
-[PASS] trapdoor_gen
-[PASS] trapdoor_commit
-[PASS] trapdoor_wrong_id
-=== Result: ALL PASS ===
-```
-
-## Project Structure
-
-```
-tessandiocyle_keyx_cpp/
-  Makefile               — Native build rules (Make)
-  src/
-    params.hpp       — Constants, Poly/PolyVec type aliases
-    reduce.hpp       — Barrett and Montgomery reduction (inline)
-    ntt.hpp / ntt.cpp — NTT with Feistel-shuffled butterflies
-    poly.hpp         — Polynomial compression, tomsg/frommsg, arithmetic
-    polyvec.hpp      — Poly-vector ops (NTT, basemul, compress)
-    cbd.hpp / cbd.cpp — Centered binomial distribution noise sampling
-    indcpa.hpp / indcpa.cpp — IND-CPA keygen, enc, dec
-    kem.hpp / kem.cpp — CCA KEM encaps / decaps
-    graph.hpp / graph.cpp — Expander graph for reconciliation
-    reconcile.hpp / reconcile.cpp — Reconciliation hints & verify
-    merkle.hpp / merkle.cpp — Merkle tree over coefficients
-    trapdoor.hpp / trapdoor.cpp — Trapdoor authority & commitments
-    protocol.hpp / protocol.cpp — Final key, MAC, commitment
-    secure.hpp       — Constant-time cmov, zeroize
-    verify.hpp       — Constant-time conditional swap
-    random.hpp / random.cpp — Secure random bytes (Windows / Linux)
-    shake.hpp / shake.cpp — Self-contained Keccak-f[1600] (FIPS 202)
-  tests/
-    cli_test.cpp     — Full integration test suite
-    test_hash.cpp    — SHA3/SHAKE test-vector verification
-```
 
 ### Design Notes
 

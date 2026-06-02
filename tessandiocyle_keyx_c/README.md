@@ -235,58 +235,6 @@ Ciphertext        (1088 bytes): 3e4f5a6b7c8d... (hex truncated)
 Shared Secret Bob   (32 bytes): 8a9b0c1d2e3f... (hex truncated)
 Shared Secret Alice (32 bytes): 8a9b0c1d2e3f... (hex truncated)
 ```
-```
-
-## Expected Test Output
-
-```
-=== TessanDioKey V18 C Native Test ===
-[PASS] params_init
-[PASS] keypair
-[PASS] indcpa_roundtrip
-[PASS] encaps
-[PASS] decaps
-[PASS] base_kem_agreement
-[PASS] derive_final_key_bob
-[PASS] derive_final_key_alice
-[PASS] final_key_agreement
-[PASS] mac_verify
-[PASS] commitment_verify
-[PASS] reconcile_self_verify
-[PASS] params_evolve
-[PASS] trapdoor_id
-[PASS] ct_cswap_on
-[PASS] ct_cswap_off
-[PASS] merkle_build
-[PASS] merkle_verify
-[PASS] merkle_tamper
-[PASS] trapdoor_gen
-[PASS] trapdoor_commit
-[PASS] trapdoor_wrong_id
-=== Result: ALL PASS ===
-```
-
-## Project Structure
-
-```
-tessandiocyle_keyx_c/
-  tessandiocyle_keyx.h   — Public API and type definitions
-  tessandiocyle_keyx.c   — High-level protocol API
-  fips202.c / fips202.h  — SHAKE/SHA3 (FIPS 202) implementation
-  randombytes.c / .h     — Cryptographically secure random bytes
-  indcpa.c               — IND-CPA encryption
-  kem.c                  — CCA KEM encaps / decaps
-  ntt.c / reduce.c       — NTT, Barrett and Montgomery reduction
-  poly.c / polyvec.c     — Polynomial and poly-vector ops
-  cbd.c                  — Centered binomial distribution
-  graph.c / reconcile.c  — Graph expansion and reconciliation
-  merkle.c / trapdoor.c  — Merkle proofs and trapdoor authority
-  protocol.c             — Final-key derivation, MAC, commitment
-  secure.c / verify.c    — Constant-time helpers and zeroization
-  Makefile               — Native build rules
-  tests/cli_test.c       — Full integration test suite
-  debug_test_ref_c/      — Standalone debug/diagnostic programs
-```
 
 ### Design Notes
 
