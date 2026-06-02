@@ -1,0 +1,14 @@
+[package]
+name = "tessandiocyle_keyx"
+version = "0.1.0"
+edition = "2021"
+description = "TessanDioKey: Novel graph-walk based key exchange protocol"
+license = "MIT"
+
+[dependencies]
+rand = "0.8"
+blake3 = "1.5"
+
+[features]
+default = ["std"]
+std = []
